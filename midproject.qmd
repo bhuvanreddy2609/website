@@ -1,0 +1,191 @@
+---
+editor: visual
+---
+
+## MID PROJECT
+
+GROUP NUMBER :- 14
+
+GROUP MEMBER NAMES :-
+
+Venkat Bhuvan Gnumber :- G01478604
+
+Devarala Chandra Sekhar Gnumber :- G01480418
+
+badgraph1 :-
+
+The visualization represents the tax revenue of countries and individual percentages of tax from various revenues like individual, social insurance, others, and corporate.
+
+The visualization is not clear to understand by looking at it.
+
+So we have created graphs to understand them just by looking at the representations.
+
+![](images/Screenshot 2024-03-11 135906.png)
+
+![](images/Screenshot 2024-03-10 205230-01.png){width="471"}
+
+GRAPH1:-
+
+```{r}
+tax_data <- read.csv("C:/Users/bhuva/OneDrive/Desktop/STAT-515/taxrevenue.csv")
+
+str(tax_data)
+
+
+```
+
+```{r}
+library(ggplot2)
+library(plotly)
+library(car)
+
+tax_data$total <- rowSums(tax_data[, 4:9])
+
+# Calculation of percentages for each column
+tax_data_percent <- as.data.frame(lapply(tax_data[, 4:9], function(x) x / tax_data$total * 100))
+
+# Adding country column
+tax_data_percent$country <- tax_data$country
+
+tax_data_percent_long <- reshape2::melt(tax_data_percent, id.vars = "country")
+
+top_10_countries <- tax_data_percent_long[tax_data_percent_long$country %in% head(unique(tax_data_percent_long$country), 10), ]
+
+
+line_plot <- ggplot(top_10_countries, aes(x = country, y = value/100, color = variable, group = variable)) +
+  geom_line() +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(title = "Line Graph of Tax Revenue Components (Top 10 Countries)", x = "Country", y = "Percentage of Tax Revenue") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_color_manual(values = c("individual" = "#009e73", "other" = "#0072b2", "social.insurance" = "#e15759", 
+                                "property" = "#cc79a7", "consumption" = "#bab0ac", "corporate" = "#edc948"))
+
+
+plotly_plot <- ggplotly(line_plot)
+
+plotly_plot
+
+```
+
+The above line graph represents the top 10 countries and the percentages of tax revenue from various sources.
+
+GRAPH2:-
+
+```{r}
+library(ggplot2)
+library(plotly)
+library(car)
+
+tax_data <- read.csv("C:/Users/bhuva/OneDrive/Desktop/STAT-515/taxrevenue.csv")
+
+str(tax_data)
+
+
+
+
+
+numeric_cols <- c("individual", "other", "social.insurance", "property", "consumption", "corporate")
+tax_data[numeric_cols] <- lapply(tax_data[numeric_cols], function(x) as.numeric(as.character(x)))
+tax_data[is.na(tax_data)] <- 0  
+
+# Calculation of percentages for each tax component
+tax_data_percent <- data.frame(
+  country = tax_data$country,
+  individual = tax_data$individual / rowSums(tax_data[, 4:9]) * 100,
+  other = tax_data$other / rowSums(tax_data[, 4:9]) * 100,
+  social.insurance = tax_data$social.insurance / rowSums(tax_data[, 4:9]) * 100,
+  property = tax_data$property / rowSums(tax_data[, 4:9]) * 100,
+  consumption = tax_data$consumption / rowSums(tax_data[, 4:9]) * 100,
+  corporate = tax_data$corporate / rowSums(tax_data[, 4:9]) * 100
+)
+
+
+tax_data_percent_long <- reshape2::melt(tax_data_percent, id.vars = "country")
+
+plot_ly(tax_data_percent_long, x = ~country, y = ~value, color = ~variable, type = 'bar') %>%
+  layout(title = "Stacked Bar Plot of Tax Revenue Components",
+         xaxis = list(title = "Country", tickangle = 45,tickmode="linear"),  
+         yaxis = list(title = "Percentage of Tax Revenue"),
+         barmode = 'stack') %>%
+  colorbar(title = "Tax Component",
+           tickvals = c("individual", "other", "social.insurance", "property", "consumption", "corporate"),
+           ticktext = c("Individual", "Other", "Social Insurance", "Property", "Consumption", "Corporate"))
+
+
+```
+
+The above stacked bar plot represents all the percentages of tax components of all the countries given in the dataset.
+
+badgraph 2 :-
+
+The bad graph does not have a proper representation of the data and the y-axis starts from 3000.
+
+We have created new designs to represent the data properly.
+
+Head of the Dataset used:-
+
+![](images/pppp.png)
+
+bad graph:-
+
+![](images/peng.png){width="562"}
+
+GRAPH1:-
+
+```{r}
+#data2
+peng<- read.csv("C:/Users/bhuva/OneDrive/Desktop/STAT-515/penguins.csv")
+str(peng)
+
+peng <- peng %>%
+  remove_missing() %>%
+  group_by(species, sex) %>%
+  summarise(mean_body_mass_g = mean(body_mass_g, na.rm = TRUE)) %>%
+  ungroup()
+
+bar_plot <- ggplot(peng, aes(x = species, y = mean_body_mass_g, fill = sex)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "Species", 
+       y = "Mean Body mass (in g)",
+       title = "Bar Plot", 
+       subtitle = "Mean body mass of three penguin species per sex") +
+  scale_y_continuous(limits = c(0, NA))
+
+print(bar_plot)
+
+library(plotly)
+
+plotly_bar_plot <- ggplotly(bar_plot)
+
+plotly_bar_plot
+
+```
+
+The above plot represents the names of the species on x-axis and mean of the body mass on the y-axis.
+
+GRAPH2:-
+
+```{r}
+#histogram
+peng<- read.csv("C:/Users/bhuva/OneDrive/Desktop/STAT-515/penguins.csv")
+str(peng)
+
+
+gg_histogram <- peng %>%
+  remove_missing() %>%
+  ggplot(aes(x = body_mass_g, fill = sex)) +
+  geom_histogram(binwidth = 100) +
+  facet_wrap(~species) +
+  labs(x = "Body mass (in g)", 
+       y = "Frequency",
+       title = "Histogram", 
+       subtitle = "Distribution of body mass of penguins per species and sex") +
+  scale_y_continuous(limits = c(0, NA)) +
+  scale_x_continuous(limits = c(0, NA))  # Setting limits for x-axis
+
+plotly_histogram <- ggplotly(gg_histogram)
+
+plotly_histogram
+```
+
+The above graph represents body mass on the x-axis and the frequency of penguins on the y-axis.

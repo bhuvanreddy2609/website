@@ -12,8 +12,8 @@ website:
       - text: "Internships and Courses"
         href: pg3.qmd
       - text: "A"
-      - href: pg4.qmd
-      - text: "B"
+      - href: midproject.qmd
+      - text: "Mid Project"
       - href: pg5.qmd
 format: 
   html: 

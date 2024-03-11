@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>midproject</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./pg1.html" rel="" target="">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./pg2.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./pg3.html" rel="" target="">
+ <span class="menu-text">Internships and Courses</span></a>
+  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text">A</span></li>
+  <li class="nav-item">
+    <a class="nav-link active" href="./midproject.html" rel="" target="" aria-current="page">
+ <span class="menu-text">MID PROJECT</span></a>
+  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text">Mid Project</span></li>
+  <li class="nav-item">
+    <a class="nav-link" href="./pg5.html" rel="" target="">
+ <span class="menu-text">c</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="mid-project" class="level2">
+<h2 class="anchored" data-anchor-id="mid-project">MID PROJECT</h2>
+<p>GROUP NUMBER :- 14</p>
+<p>GROUP MEMBER NAMES :-</p>
+<p>Venkat Bhuvan Gnumber :- G01478604</p>
+<p>Devarala Chandra Sekhar Gnumber :- G01480418</p>
+<p>badgraph1 :-</p>
+<p>The visualization represents the tax revenue of countries and individual percentages of tax from various revenues like individual, social insurance, others, and corporate.</p>
+<p>The visualization is not clear to understand by looking at it.</p>
+<p>So we have created graphs to understand them just by looking at the representations.</p>
+<p><img src="images/Screenshot 2024-03-11 135906.png" class="img-fluid"></p>
+<p><img src="images/Screenshot 2024-03-10 205230-01.png" class="img-fluid" width="471"></p>
+<p>GRAPH1:-</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tax_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bhuva/OneDrive/Desktop/STAT-515/taxrevenue.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tax_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   30 obs. of  9 variables:
+ $ continent         : chr  "america" "america" "america" "america" ...
+ $ country           : chr  "united states" "canada" "mexico" "columbia" ...
+ $ totaltax.billions.: int  5200 581 198 64 58 1600 4500 176 120 417 ...
+ $ individual        : num  41.5 36.6 12 14 5 19.1 17.5 5 25 41 ...
+ $ social.insurance  : num  24.9 14 0.8 0.6 1 40.2 26.7 20 5 0 ...
+ $ property          : num  12.1 11.6 10 13 15 8.1 11.4 20 15 9.5 ...
+ $ consumption       : num  17.6 22.9 35 25 35 19.5 25.8 35 40 25.5 ...
+ $ other             : num  0 3.7 10 7 5 0.3 2.9 5 10 5 ...
+ $ corporate         : num  3.9 11.2 25 35 30 12.9 15.7 15 5 19 ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'plotly' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'plotly'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    last_plot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    filter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:graphics':
+
+    layout</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'car' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'carData' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tax_data<span class="sc">$</span>total <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(tax_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">9</span>])</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculation of percentages for each column</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>tax_data_percent <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">lapply</span>(tax_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">9</span>], <span class="cf">function</span>(x) x <span class="sc">/</span> tax_data<span class="sc">$</span>total <span class="sc">*</span> <span class="dv">100</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding country column</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>tax_data_percent<span class="sc">$</span>country <span class="ot">&lt;-</span> tax_data<span class="sc">$</span>country</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>tax_data_percent_long <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(tax_data_percent, <span class="at">id.vars =</span> <span class="st">"country"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>top_10_countries <span class="ot">&lt;-</span> tax_data_percent_long[tax_data_percent_long<span class="sc">$</span>country <span class="sc">%in%</span> <span class="fu">head</span>(<span class="fu">unique</span>(tax_data_percent_long<span class="sc">$</span>country), <span class="dv">10</span>), ]</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>line_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(top_10_countries, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> value<span class="sc">/</span><span class="dv">100</span>, <span class="at">color =</span> variable, <span class="at">group =</span> variable)) <span class="sc">+</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>()) <span class="sc">+</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Line Graph of Tax Revenue Components (Top 10 Countries)"</span>, <span class="at">x =</span> <span class="st">"Country"</span>, <span class="at">y =</span> <span class="st">"Percentage of Tax Revenue"</span>) <span class="sc">+</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"individual"</span> <span class="ot">=</span> <span class="st">"#009e73"</span>, <span class="st">"other"</span> <span class="ot">=</span> <span class="st">"#0072b2"</span>, <span class="st">"social.insurance"</span> <span class="ot">=</span> <span class="st">"#e15759"</span>, </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"property"</span> <span class="ot">=</span> <span class="st">"#cc79a7"</span>, <span class="st">"consumption"</span> <span class="ot">=</span> <span class="st">"#bab0ac"</span>, <span class="st">"corporate"</span> <span class="ot">=</span> <span class="st">"#edc948"</span>))</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>plotly_plot <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(line_plot)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>plotly_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-5d0683abc6345b2e4018" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-5d0683abc6345b2e4018">{"x":{"data":[{"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.40999999999999998,0.36599999999999999,0.054945054945054944,0.14799154334038056,0.25,0.19080919080919082,0.12931034482758622,0.17499999999999999,0.050000000000000003,0.41499999999999998],"text":["country: australia<br />value/100: 0.410000000<br />variable: individual<br />variable: individual","country: canada<br />value/100: 0.366000000<br />variable: individual<br />variable: individual","country: chile<br />value/100: 0.054945055<br />variable: individual<br />variable: individual","country: columbia<br />value/100: 0.147991543<br />variable: individual<br />variable: individual","country: israel<br />value/100: 0.250000000<br />variable: individual<br />variable: individual","country: japan<br />value/100: 0.190809191<br />variable: individual<br />variable: individual","country: mexico<br />value/100: 0.129310345<br />variable: individual<br />variable: individual","country: south korea<br />value/100: 0.175000000<br />variable: individual<br />variable: individual","country: turkey<br />value/100: 0.050000000<br />variable: individual<br />variable: individual","country: united states<br />value/100: 0.415000000<br />variable: individual<br />variable: individual"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,158,115,1)","dash":"solid"},"hoveron":"points","name":"individual","legendgroup":"individual","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10],"y":[0,0.14000000000000001,0.01098901098901099,0.0063424947145877377,0.050000000000000003,0.4015984015984016,0.0086206896551724137,0.26700000000000002,0.20000000000000001,0.249],"text":["country: australia<br />value/100: 0.000000000<br />variable: social.insurance<br />variable: social.insurance","country: canada<br />value/100: 0.140000000<br />variable: social.insurance<br />variable: social.insurance","country: chile<br />value/100: 0.010989011<br />variable: social.insurance<br />variable: social.insurance","country: columbia<br />value/100: 0.006342495<br />variable: social.insurance<br />variable: social.insurance","country: israel<br />value/100: 0.050000000<br />variable: social.insurance<br />variable: social.insurance","country: japan<br />value/100: 0.401598402<br />variable: social.insurance<br />variable: social.insurance","country: mexico<br />value/100: 0.008620690<br />variable: social.insurance<br />variable: social.insurance","country: south korea<br />value/100: 0.267000000<br />variable: social.insurance<br />variable: social.insurance","country: turkey<br />value/100: 0.200000000<br />variable: social.insurance<br />variable: social.insurance","country: united states<br />value/100: 0.249000000<br />variable: social.insurance<br />variable: social.insurance"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(225,87,89,1)","dash":"solid"},"hoveron":"points","name":"social.insurance","legendgroup":"social.insurance","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.095000000000000001,0.11599999999999999,0.1648351648351648,0.13742071881606766,0.14999999999999999,0.080919080919080913,0.10775862068965518,0.114,0.20000000000000001,0.121],"text":["country: australia<br />value/100: 0.095000000<br />variable: property<br />variable: property","country: canada<br />value/100: 0.116000000<br />variable: property<br />variable: property","country: chile<br />value/100: 0.164835165<br />variable: property<br />variable: property","country: columbia<br />value/100: 0.137420719<br />variable: property<br />variable: property","country: israel<br />value/100: 0.150000000<br />variable: property<br />variable: property","country: japan<br />value/100: 0.080919081<br />variable: property<br />variable: property","country: mexico<br />value/100: 0.107758621<br />variable: property<br />variable: property","country: south korea<br />value/100: 0.114000000<br />variable: property<br />variable: property","country: turkey<br />value/100: 0.200000000<br />variable: property<br />variable: property","country: united states<br />value/100: 0.121000000<br />variable: property<br />variable: property"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(204,121,167,1)","dash":"solid"},"hoveron":"points","name":"property","legendgroup":"property","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.255,0.22899999999999998,0.38461538461538469,0.26427061310782241,0.40000000000000002,0.19480519480519479,0.37715517241379309,0.25800000000000001,0.34999999999999998,0.17600000000000002],"text":["country: australia<br />value/100: 0.255000000<br />variable: consumption<br />variable: consumption","country: canada<br />value/100: 0.229000000<br />variable: consumption<br />variable: consumption","country: chile<br />value/100: 0.384615385<br />variable: consumption<br />variable: consumption","country: columbia<br />value/100: 0.264270613<br />variable: consumption<br />variable: consumption","country: israel<br />value/100: 0.400000000<br />variable: consumption<br />variable: consumption","country: japan<br />value/100: 0.194805195<br />variable: consumption<br />variable: consumption","country: mexico<br />value/100: 0.377155172<br />variable: consumption<br />variable: consumption","country: south korea<br />value/100: 0.258000000<br />variable: consumption<br />variable: consumption","country: turkey<br />value/100: 0.350000000<br />variable: consumption<br />variable: consumption","country: united states<br />value/100: 0.176000000<br />variable: consumption<br />variable: consumption"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(186,176,172,1)","dash":"solid"},"hoveron":"points","name":"consumption","legendgroup":"consumption","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.050000000000000003,0.037000000000000005,0.054945054945054944,0.07399577167019028,0.10000000000000001,0.0029970029970029966,0.10775862068965518,0.028999999999999998,0.050000000000000003,0],"text":["country: australia<br />value/100: 0.050000000<br />variable: other<br />variable: other","country: canada<br />value/100: 0.037000000<br />variable: other<br />variable: other","country: chile<br />value/100: 0.054945055<br />variable: other<br />variable: other","country: columbia<br />value/100: 0.073995772<br />variable: other<br />variable: other","country: israel<br />value/100: 0.100000000<br />variable: other<br />variable: other","country: japan<br />value/100: 0.002997003<br />variable: other<br />variable: other","country: mexico<br />value/100: 0.107758621<br />variable: other<br />variable: other","country: south korea<br />value/100: 0.029000000<br />variable: other<br />variable: other","country: turkey<br />value/100: 0.050000000<br />variable: other<br />variable: other","country: united states<br />value/100: 0.000000000<br />variable: other<br />variable: other"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,114,178,1)","dash":"solid"},"hoveron":"points","name":"other","legendgroup":"other","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.19,0.11199999999999999,0.32967032967032961,0.3699788583509514,0.050000000000000003,0.12887112887112886,0.26939655172413796,0.157,0.14999999999999999,0.039],"text":["country: australia<br />value/100: 0.190000000<br />variable: corporate<br />variable: corporate","country: canada<br />value/100: 0.112000000<br />variable: corporate<br />variable: corporate","country: chile<br />value/100: 0.329670330<br />variable: corporate<br />variable: corporate","country: columbia<br />value/100: 0.369978858<br />variable: corporate<br />variable: corporate","country: israel<br />value/100: 0.050000000<br />variable: corporate<br />variable: corporate","country: japan<br />value/100: 0.128871129<br />variable: corporate<br />variable: corporate","country: mexico<br />value/100: 0.269396552<br />variable: corporate<br />variable: corporate","country: south korea<br />value/100: 0.157000000<br />variable: corporate<br />variable: corporate","country: turkey<br />value/100: 0.150000000<br />variable: corporate<br />variable: corporate","country: united states<br />value/100: 0.039000000<br />variable: corporate<br />variable: corporate"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(237,201,72,1)","dash":"solid"},"hoveron":"points","name":"corporate","legendgroup":"corporate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":68.877629846825656,"l":43.105022831050235},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Line Graph of Tax Revenue Components (Top 10 Countries)","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,10.6],"tickmode":"array","ticktext":["australia","canada","chile","columbia","israel","japan","mexico","south korea","turkey","united states"],"tickvals":[1,2,3,4,5,6.0000000000000009,7,8,9,10],"categoryorder":"array","categoryarray":["australia","canada","chile","columbia","israel","japan","mexico","south korea","turkey","united states"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Country","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.020750000000000001,0.43574999999999997],"tickmode":"array","ticktext":["0%","10%","20%","30%","40%"],"tickvals":[0,0.10000000000000001,0.20000000000000001,0.30000000000000004,0.40000000000000002],"categoryorder":"array","categoryarray":["0%","10%","20%","30%","40%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Percentage of Tax Revenue","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"variable","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"82079fa2b03":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"82079fa2b03","visdat":{"82079fa2b03":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>The above line graph represents the top 10 countries and the percentages of tax revenue from various sources.</p>
+<p>GRAPH2:-</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>tax_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bhuva/OneDrive/Desktop/STAT-515/taxrevenue.csv"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tax_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   30 obs. of  9 variables:
+ $ continent         : chr  "america" "america" "america" "america" ...
+ $ country           : chr  "united states" "canada" "mexico" "columbia" ...
+ $ totaltax.billions.: int  5200 581 198 64 58 1600 4500 176 120 417 ...
+ $ individual        : num  41.5 36.6 12 14 5 19.1 17.5 5 25 41 ...
+ $ social.insurance  : num  24.9 14 0.8 0.6 1 40.2 26.7 20 5 0 ...
+ $ property          : num  12.1 11.6 10 13 15 8.1 11.4 20 15 9.5 ...
+ $ consumption       : num  17.6 22.9 35 25 35 19.5 25.8 35 40 25.5 ...
+ $ other             : num  0 3.7 10 7 5 0.3 2.9 5 10 5 ...
+ $ corporate         : num  3.9 11.2 25 35 30 12.9 15.7 15 5 19 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"individual"</span>, <span class="st">"other"</span>, <span class="st">"social.insurance"</span>, <span class="st">"property"</span>, <span class="st">"consumption"</span>, <span class="st">"corporate"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>tax_data[numeric_cols] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(tax_data[numeric_cols], <span class="cf">function</span>(x) <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(x)))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>tax_data[<span class="fu">is.na</span>(tax_data)] <span class="ot">&lt;-</span> <span class="dv">0</span>  </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculation of percentages for each tax component</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>tax_data_percent <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> tax_data<span class="sc">$</span>country,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">individual =</span> tax_data<span class="sc">$</span>individual <span class="sc">/</span> <span class="fu">rowSums</span>(tax_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">9</span>]) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">other =</span> tax_data<span class="sc">$</span>other <span class="sc">/</span> <span class="fu">rowSums</span>(tax_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">9</span>]) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">social.insurance =</span> tax_data<span class="sc">$</span>social.insurance <span class="sc">/</span> <span class="fu">rowSums</span>(tax_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">9</span>]) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">property =</span> tax_data<span class="sc">$</span>property <span class="sc">/</span> <span class="fu">rowSums</span>(tax_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">9</span>]) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">consumption =</span> tax_data<span class="sc">$</span>consumption <span class="sc">/</span> <span class="fu">rowSums</span>(tax_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">9</span>]) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">corporate =</span> tax_data<span class="sc">$</span>corporate <span class="sc">/</span> <span class="fu">rowSums</span>(tax_data[, <span class="dv">4</span><span class="sc">:</span><span class="dv">9</span>]) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>tax_data_percent_long <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(tax_data_percent, <span class="at">id.vars =</span> <span class="st">"country"</span>)</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(tax_data_percent_long, <span class="at">x =</span> <span class="sc">~</span>country, <span class="at">y =</span> <span class="sc">~</span>value, <span class="at">color =</span> <span class="sc">~</span>variable, <span class="at">type =</span> <span class="st">'bar'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">title =</span> <span class="st">"Stacked Bar Plot of Tax Revenue Components"</span>,</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Country"</span>, <span class="at">tickangle =</span> <span class="dv">45</span>,<span class="at">tickmode=</span><span class="st">"linear"</span>),  </span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Percentage of Tax Revenue"</span>),</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">barmode =</span> <span class="st">'stack'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colorbar</span>(<span class="at">title =</span> <span class="st">"Tax Component"</span>,</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>           <span class="at">tickvals =</span> <span class="fu">c</span>(<span class="st">"individual"</span>, <span class="st">"other"</span>, <span class="st">"social.insurance"</span>, <span class="st">"property"</span>, <span class="st">"consumption"</span>, <span class="st">"corporate"</span>),</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">ticktext =</span> <span class="fu">c</span>(<span class="st">"Individual"</span>, <span class="st">"Other"</span>, <span class="st">"Social Insurance"</span>, <span class="st">"Property"</span>, <span class="st">"Consumption"</span>, <span class="st">"Corporate"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Didn't find a colorbar to modify.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-32b06874a18d365f2d4e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-32b06874a18d365f2d4e">{"x":{"visdat":{"82056ab3dba":["function () ","plotlyVisDat"]},"cur_data":"82056ab3dba","attrs":{"82056ab3dba":{"x":{},"y":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Stacked Bar Plot of Tax Revenue Components","xaxis":{"domain":[0,1],"automargin":true,"title":"Country","tickangle":45,"tickmode":"linear","type":"category","categoryorder":"array","categoryarray":["australia","austria","belgium","canada","chile","columbia","denmark","estonia","finland","france","germany","greece","hungary","iceland","ireland","israel","italy","japan","mexico","netherlands","norway","poland","portugal","south korea","spain","sweden","switzerland","turkey","united kingdom","united states"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Percentage of Tax Revenue"},"barmode":"stack","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["united states","canada","mexico","columbia","chile","japan","south korea","turkey","israel","australia","germany","united kingdom","france","italy","spain","netherlands","sweden","belgium","poland","norway","ireland","switzerland","austria","denmark","finland","greece","hungary","portugal","iceland","estonia"],"y":[41.5,36.600000000000001,12.931034482758621,14.799154334038056,5.4945054945054945,19.080919080919081,17.5,5,25,41,27.399999999999995,27.683049147442329,21.100000000000001,25.699999999999999,22.699999999999999,25,27.27272727272727,25,30,25,20,30,17.647058823529413,40,30,20,10,11.111111111111111,20,25],"type":"bar","name":"individual","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["united states","canada","mexico","columbia","chile","japan","south korea","turkey","israel","australia","germany","united kingdom","france","italy","spain","netherlands","sweden","belgium","poland","norway","ireland","switzerland","austria","denmark","finland","greece","hungary","portugal","iceland","estonia"],"y":[0,3.7000000000000006,10.775862068965518,7.3995771670190278,5.4945054945054945,0.29970029970029965,2.8999999999999999,5,10,5,0,0,5.2000000000000002,4.2999999999999998,0,0,0,10,20,0,5,5,11.76470588235294,10,5,5,5,0,5,5],"type":"bar","name":"other","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["united states","canada","mexico","columbia","chile","japan","south korea","turkey","israel","australia","germany","united kingdom","france","italy","spain","netherlands","sweden","belgium","poland","norway","ireland","switzerland","austria","denmark","finland","greece","hungary","portugal","iceland","estonia"],"y":[24.899999999999999,14.000000000000002,0.86206896551724133,0.63424947145877375,1.098901098901099,40.159840159840158,26.700000000000003,20,5,0,37.899999999999999,19.55867602808425,32.799999999999997,31.199999999999999,35.399999999999999,35,9.0909090909090917,25,20,30,30,20,23.52941176470588,10,15,35,35,27.777777777777779,20,20],"type":"bar","name":"social.insurance","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["united states","canada","mexico","columbia","chile","japan","south korea","turkey","israel","australia","germany","united kingdom","france","italy","spain","netherlands","sweden","belgium","poland","norway","ireland","switzerland","austria","denmark","finland","greece","hungary","portugal","iceland","estonia"],"y":[12.1,11.6,10.775862068965518,13.742071881606766,16.483516483516482,8.0919080919080919,11.4,20,15,9.5,2.7999999999999998,12.437311935807422,8.9000000000000004,5.7999999999999998,7.0000000000000009,10,18.181818181818183,10,20,10,15,10,5.8823529411764701,5,15,15,25,33.333333333333329,25,20],"type":"bar","name":"property","marker":{"color":"rgba(231,138,195,1)","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)"},"error_y":{"color":"rgba(231,138,195,1)"},"error_x":{"color":"rgba(231,138,195,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["united states","canada","mexico","columbia","chile","japan","south korea","turkey","israel","australia","germany","united kingdom","france","italy","spain","netherlands","sweden","belgium","poland","norway","ireland","switzerland","austria","denmark","finland","greece","hungary","portugal","iceland","estonia"],"y":[17.600000000000001,22.899999999999999,37.71551724137931,26.427061310782239,38.461538461538467,19.480519480519479,25.800000000000001,35,40,25.5,26.700000000000003,32.698094282848544,27.100000000000001,28.399999999999999,28.899999999999999,25,22.727272727272727,15,5,25,20,25,29.411764705882355,25,20,15,20,11.111111111111111,10,20],"type":"bar","name":"consumption","marker":{"color":"rgba(166,216,84,1)","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)"},"error_y":{"color":"rgba(166,216,84,1)"},"error_x":{"color":"rgba(166,216,84,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["united states","canada","mexico","columbia","chile","japan","south korea","turkey","israel","australia","germany","united kingdom","france","italy","spain","netherlands","sweden","belgium","poland","norway","ireland","switzerland","austria","denmark","finland","greece","hungary","portugal","iceland","estonia"],"y":[3.8999999999999999,11.199999999999999,26.939655172413797,36.99788583509514,32.967032967032964,12.887112887112886,15.699999999999999,15,5,19,5.2000000000000002,7.6228686058174526,4.9000000000000004,4.5999999999999996,6,5,22.727272727272727,15,5,10,10,10,11.76470588235294,10,15,10,5,16.666666666666664,20,10],"type":"bar","name":"corporate","marker":{"color":"rgba(255,217,47,1)","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)"},"error_y":{"color":"rgba(255,217,47,1)"},"error_x":{"color":"rgba(255,217,47,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>The above stacked bar plot represents all the percentages of tax components of all the countries given in the dataset.</p>
+<p>badgraph 2 :-</p>
+<p>The bad graph does not have a proper representation of the data and the y-axis starts from 3000.</p>
+<p>We have created new designs to represent the data properly.</p>
+<p>Head of the Dataset used:-</p>
+<p><img src="images/pppp.png" class="img-fluid"></p>
+<p>bad graph:-</p>
+<p><img src="images/peng.png" class="img-fluid" width="562"></p>
+<p>GRAPH1:-</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data2</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>peng<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bhuva/OneDrive/Desktop/STAT-515/penguins.csv"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(peng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   344 obs. of  9 variables:
+ $ rowid            : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ species          : chr  "Adelie" "Adelie" "Adelie" "Adelie" ...
+ $ island           : chr  "Torgersen" "Torgersen" "Torgersen" "Torgersen" ...
+ $ bill_length_mm   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+ $ bill_depth_mm    : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+ $ flipper_length_mm: int  181 186 195 NA 193 190 181 195 193 190 ...
+ $ body_mass_g      : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+ $ sex              : chr  "male" "female" "female" NA ...
+ $ year             : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>peng <span class="ot">&lt;-</span> peng <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">remove_missing</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, sex) <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_body_mass_g =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 11 rows containing missing values.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>bar_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(peng, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> mean_body_mass_g, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Species"</span>, </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Body mass (in g)"</span>,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Bar Plot"</span>, </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mean body mass of three penguin species per sex"</span>) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>))</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bar_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="midproject_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>plotly_bar_plot <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(bar_plot)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plotly_bar_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-6a59ad248c70aff85bf7" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-6a59ad248c70aff85bf7">{"x":{"data":[{"orientation":"v","width":[0.44999999999999996,0.45000000000000018,0.45000000000000018],"base":[0,0,0],"x":[0.77500000000000002,1.7749999999999999,2.7749999999999999],"y":[3368.8356164383563,3527.205882352941,4679.7413793103451],"text":["species: Adelie<br />mean_body_mass_g: 3368.836<br />sex: female","species: Chinstrap<br />mean_body_mass_g: 3527.206<br />sex: female","species: Gentoo<br />mean_body_mass_g: 4679.741<br />sex: female"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"female","legendgroup":"female","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.45000000000000018,0.45000000000000018,0.45000000000000018],"base":[0,0,0],"x":[1.2250000000000001,2.2250000000000001,3.2250000000000001],"y":[4043.4931506849316,3938.9705882352941,5484.8360655737706],"text":["species: Adelie<br />mean_body_mass_g: 4043.493<br />sex: male","species: Chinstrap<br />mean_body_mass_g: 3938.971<br />sex: male","species: Gentoo<br />mean_body_mass_g: 5484.836<br />sex: male"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"male","legendgroup":"male","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826491,"l":48.949771689497723},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Bar Plot","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["Adelie","Chinstrap","Gentoo"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Adelie","Chinstrap","Gentoo"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Species","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-274.24180327868856,5759.0778688524588],"tickmode":"array","ticktext":["0","2000","4000"],"tickvals":[0,2000,3999.9999999999995],"categoryorder":"array","categoryarray":["0","2000","4000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Mean Body mass (in g)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"sex","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"8204dad247":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"8204dad247","visdat":{"8204dad247":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>The above plot represents the names of the species on x-axis and mean of the body mass on the y-axis.</p>
+<p>GRAPH2:-</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>peng<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/bhuva/OneDrive/Desktop/STAT-515/penguins.csv"</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(peng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   344 obs. of  9 variables:
+ $ rowid            : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ species          : chr  "Adelie" "Adelie" "Adelie" "Adelie" ...
+ $ island           : chr  "Torgersen" "Torgersen" "Torgersen" "Torgersen" ...
+ $ bill_length_mm   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+ $ bill_depth_mm    : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+ $ flipper_length_mm: int  181 186 195 NA 193 190 181 195 193 190 ...
+ $ body_mass_g      : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+ $ sex              : chr  "male" "female" "female" NA ...
+ $ year             : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>gg_histogram <span class="ot">&lt;-</span> peng <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">remove_missing</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">100</span>) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species) <span class="sc">+</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Body mass (in g)"</span>, </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Histogram"</span>, </span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Distribution of body mass of penguins per species and sex"</span>) <span class="sc">+</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>)) <span class="sc">+</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>))  <span class="co"># Setting limits for x-axis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 11 rows containing missing values.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plotly_histogram <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(gg_histogram)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>plotly_histogram</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-6a21e115ab4863cf28f3" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-6a21e115ab4863cf28f3">{"x":{"data":[{"orientation":"v","width":[null,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,6,3,5,5,13,7,6,6,6,5,2,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[null,100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4100,4200,4300,4400,4500,4600,4700,4800,4900,5000,5100,5200,5300,5400,5500,5600,5700,5800,5900,6000,6100,6200,6300],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,4,6,6,8,10,11,9,4,7,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"text":["count:  0<br />body_mass_g:    0<br />sex: female","count:  0<br />body_mass_g:  100<br />sex: female","count:  0<br />body_mass_g:  200<br />sex: female","count:  0<br />body_mass_g:  300<br />sex: female","count:  0<br />body_mass_g:  400<br />sex: female","count:  0<br />body_mass_g:  500<br />sex: female","count:  0<br />body_mass_g:  600<br />sex: female","count:  0<br />body_mass_g:  700<br />sex: female","count:  0<br />body_mass_g:  800<br />sex: female","count:  0<br />body_mass_g:  900<br />sex: female","count:  0<br />body_mass_g: 1000<br />sex: female","count:  0<br />body_mass_g: 1100<br />sex: female","count:  0<br />body_mass_g: 1200<br />sex: female","count:  0<br />body_mass_g: 1300<br />sex: female","count:  0<br />body_mass_g: 1400<br />sex: female","count:  0<br />body_mass_g: 1500<br />sex: female","count:  0<br />body_mass_g: 1600<br />sex: female","count:  0<br />body_mass_g: 1700<br />sex: female","count:  0<br />body_mass_g: 1800<br />sex: female","count:  0<br />body_mass_g: 1900<br />sex: female","count:  0<br />body_mass_g: 2000<br />sex: female","count:  0<br />body_mass_g: 2100<br />sex: female","count:  0<br />body_mass_g: 2200<br />sex: female","count:  0<br />body_mass_g: 2300<br />sex: female","count:  0<br />body_mass_g: 2400<br />sex: female","count:  0<br />body_mass_g: 2500<br />sex: female","count:  0<br />body_mass_g: 2600<br />sex: female","count:  0<br />body_mass_g: 2700<br />sex: female","count:  2<br />body_mass_g: 2800<br />sex: female","count:  4<br />body_mass_g: 2900<br />sex: female","count:  6<br />body_mass_g: 3000<br />sex: female","count:  6<br />body_mass_g: 3100<br />sex: female","count:  8<br />body_mass_g: 3200<br />sex: female","count: 10<br />body_mass_g: 3300<br />sex: female","count: 11<br />body_mass_g: 3400<br />sex: female","count:  9<br />body_mass_g: 3500<br />sex: female","count:  4<br />body_mass_g: 3600<br />sex: female","count:  7<br />body_mass_g: 3700<br />sex: female","count:  5<br />body_mass_g: 3800<br />sex: female","count:  1<br />body_mass_g: 3900<br />sex: female","count:  0<br />body_mass_g: 4000<br />sex: female","count:  0<br />body_mass_g: 4100<br />sex: female","count:  0<br />body_mass_g: 4200<br />sex: female","count:  0<br />body_mass_g: 4300<br />sex: female","count:  0<br />body_mass_g: 4400<br />sex: female","count:  0<br />body_mass_g: 4500<br />sex: female","count:  0<br />body_mass_g: 4600<br />sex: female","count:  0<br />body_mass_g: 4700<br />sex: female","count:  0<br />body_mass_g: 4800<br />sex: female","count:  0<br />body_mass_g: 4900<br />sex: female","count:  0<br />body_mass_g: 5000<br />sex: female","count:  0<br />body_mass_g: 5100<br />sex: female","count:  0<br />body_mass_g: 5200<br />sex: female","count:  0<br />body_mass_g: 5300<br />sex: female","count:  0<br />body_mass_g: 5400<br />sex: female","count:  0<br />body_mass_g: 5500<br />sex: female","count:  0<br />body_mass_g: 5600<br />sex: female","count:  0<br />body_mass_g: 5700<br />sex: female","count:  0<br />body_mass_g: 5800<br />sex: female","count:  0<br />body_mass_g: 5900<br />sex: female","count:  0<br />body_mass_g: 6000<br />sex: female","count:  0<br />body_mass_g: 6100<br />sex: female","count:  0<br />body_mass_g: 6200<br />sex: female","count:  0<br />body_mass_g: 6300<br />sex: female"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"female","legendgroup":"female","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[null,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,1,2,3,5,4,5,3,0,2,2,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[null,100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4100,4200,4300,4400,4500,4600,4700,4800,4900,5000,5100,5200,5300,5400,5500,5600,5700,5800,5900,6000,6100,6200,6300],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,3,4,4,4,6,5,3,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"text":["count:  0<br />body_mass_g:    0<br />sex: female","count:  0<br />body_mass_g:  100<br />sex: female","count:  0<br />body_mass_g:  200<br />sex: female","count:  0<br />body_mass_g:  300<br />sex: female","count:  0<br />body_mass_g:  400<br />sex: female","count:  0<br />body_mass_g:  500<br />sex: female","count:  0<br />body_mass_g:  600<br />sex: female","count:  0<br />body_mass_g:  700<br />sex: female","count:  0<br />body_mass_g:  800<br />sex: female","count:  0<br />body_mass_g:  900<br />sex: female","count:  0<br />body_mass_g: 1000<br />sex: female","count:  0<br />body_mass_g: 1100<br />sex: female","count:  0<br />body_mass_g: 1200<br />sex: female","count:  0<br />body_mass_g: 1300<br />sex: female","count:  0<br />body_mass_g: 1400<br />sex: female","count:  0<br />body_mass_g: 1500<br />sex: female","count:  0<br />body_mass_g: 1600<br />sex: female","count:  0<br />body_mass_g: 1700<br />sex: female","count:  0<br />body_mass_g: 1800<br />sex: female","count:  0<br />body_mass_g: 1900<br />sex: female","count:  0<br />body_mass_g: 2000<br />sex: female","count:  0<br />body_mass_g: 2100<br />sex: female","count:  0<br />body_mass_g: 2200<br />sex: female","count:  0<br />body_mass_g: 2300<br />sex: female","count:  0<br />body_mass_g: 2400<br />sex: female","count:  0<br />body_mass_g: 2500<br />sex: female","count:  0<br />body_mass_g: 2600<br />sex: female","count:  1<br />body_mass_g: 2700<br />sex: female","count:  0<br />body_mass_g: 2800<br />sex: female","count:  1<br />body_mass_g: 2900<br />sex: female","count:  0<br />body_mass_g: 3000<br />sex: female","count:  0<br />body_mass_g: 3100<br />sex: female","count:  3<br />body_mass_g: 3200<br />sex: female","count:  4<br />body_mass_g: 3300<br />sex: female","count:  4<br />body_mass_g: 3400<br />sex: female","count:  4<br />body_mass_g: 3500<br />sex: female","count:  6<br />body_mass_g: 3600<br />sex: female","count:  5<br />body_mass_g: 3700<br />sex: female","count:  3<br />body_mass_g: 3800<br />sex: female","count:  2<br />body_mass_g: 3900<br />sex: female","count:  0<br />body_mass_g: 4000<br />sex: female","count:  1<br />body_mass_g: 4100<br />sex: female","count:  0<br />body_mass_g: 4200<br />sex: female","count:  0<br />body_mass_g: 4300<br />sex: female","count:  0<br />body_mass_g: 4400<br />sex: female","count:  0<br />body_mass_g: 4500<br />sex: female","count:  0<br />body_mass_g: 4600<br />sex: female","count:  0<br />body_mass_g: 4700<br />sex: female","count:  0<br />body_mass_g: 4800<br />sex: female","count:  0<br />body_mass_g: 4900<br />sex: female","count:  0<br />body_mass_g: 5000<br />sex: female","count:  0<br />body_mass_g: 5100<br />sex: female","count:  0<br />body_mass_g: 5200<br />sex: female","count:  0<br />body_mass_g: 5300<br />sex: female","count:  0<br />body_mass_g: 5400<br />sex: female","count:  0<br />body_mass_g: 5500<br />sex: female","count:  0<br />body_mass_g: 5600<br />sex: female","count:  0<br />body_mass_g: 5700<br />sex: female","count:  0<br />body_mass_g: 5800<br />sex: female","count:  0<br />body_mass_g: 5900<br />sex: female","count:  0<br />body_mass_g: 6000<br />sex: female","count:  0<br />body_mass_g: 6100<br />sex: female","count:  0<br />body_mass_g: 6200<br />sex: female","count:  0<br />body_mass_g: 6300<br />sex: female"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"female","legendgroup":"female","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[null,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,5,3,5,7,6,11,5,6,5,2,3,0,0,1],"x":[null,100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4100,4200,4300,4400,4500,4600,4700,4800,4900,5000,5100,5200,5300,5400,5500,5600,5700,5800,5900,6000,6100,6200,6300],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,3,3,7,2,9,10,6,7,5,2,2,0,0,0,0,0,0,0,0,0,0,0],"text":["count:  0<br />body_mass_g:    0<br />sex: female","count:  0<br />body_mass_g:  100<br />sex: female","count:  0<br />body_mass_g:  200<br />sex: female","count:  0<br />body_mass_g:  300<br />sex: female","count:  0<br />body_mass_g:  400<br />sex: female","count:  0<br />body_mass_g:  500<br />sex: female","count:  0<br />body_mass_g:  600<br />sex: female","count:  0<br />body_mass_g:  700<br />sex: female","count:  0<br />body_mass_g:  800<br />sex: female","count:  0<br />body_mass_g:  900<br />sex: female","count:  0<br />body_mass_g: 1000<br />sex: female","count:  0<br />body_mass_g: 1100<br />sex: female","count:  0<br />body_mass_g: 1200<br />sex: female","count:  0<br />body_mass_g: 1300<br />sex: female","count:  0<br />body_mass_g: 1400<br />sex: female","count:  0<br />body_mass_g: 1500<br />sex: female","count:  0<br />body_mass_g: 1600<br />sex: female","count:  0<br />body_mass_g: 1700<br />sex: female","count:  0<br />body_mass_g: 1800<br />sex: female","count:  0<br />body_mass_g: 1900<br />sex: female","count:  0<br />body_mass_g: 2000<br />sex: female","count:  0<br />body_mass_g: 2100<br />sex: female","count:  0<br />body_mass_g: 2200<br />sex: female","count:  0<br />body_mass_g: 2300<br />sex: female","count:  0<br />body_mass_g: 2400<br />sex: female","count:  0<br />body_mass_g: 2500<br />sex: female","count:  0<br />body_mass_g: 2600<br />sex: female","count:  0<br />body_mass_g: 2700<br />sex: female","count:  0<br />body_mass_g: 2800<br />sex: female","count:  0<br />body_mass_g: 2900<br />sex: female","count:  0<br />body_mass_g: 3000<br />sex: female","count:  0<br />body_mass_g: 3100<br />sex: female","count:  0<br />body_mass_g: 3200<br />sex: female","count:  0<br />body_mass_g: 3300<br />sex: female","count:  0<br />body_mass_g: 3400<br />sex: female","count:  0<br />body_mass_g: 3500<br />sex: female","count:  0<br />body_mass_g: 3600<br />sex: female","count:  0<br />body_mass_g: 3700<br />sex: female","count:  0<br />body_mass_g: 3800<br />sex: female","count:  1<br />body_mass_g: 3900<br />sex: female","count:  0<br />body_mass_g: 4000<br />sex: female","count:  1<br />body_mass_g: 4100<br />sex: female","count:  3<br />body_mass_g: 4200<br />sex: female","count:  3<br />body_mass_g: 4300<br />sex: female","count:  7<br />body_mass_g: 4400<br />sex: female","count:  2<br />body_mass_g: 4500<br />sex: female","count:  9<br />body_mass_g: 4600<br />sex: female","count: 10<br />body_mass_g: 4700<br />sex: female","count:  6<br />body_mass_g: 4800<br />sex: female","count:  7<br />body_mass_g: 4900<br />sex: female","count:  5<br />body_mass_g: 5000<br />sex: female","count:  2<br />body_mass_g: 5100<br />sex: female","count:  2<br />body_mass_g: 5200<br />sex: female","count:  0<br />body_mass_g: 5300<br />sex: female","count:  0<br />body_mass_g: 5400<br />sex: female","count:  0<br />body_mass_g: 5500<br />sex: female","count:  0<br />body_mass_g: 5600<br />sex: female","count:  0<br />body_mass_g: 5700<br />sex: female","count:  0<br />body_mass_g: 5800<br />sex: female","count:  0<br />body_mass_g: 5900<br />sex: female","count:  0<br />body_mass_g: 6000<br />sex: female","count:  0<br />body_mass_g: 6100<br />sex: female","count:  0<br />body_mass_g: 6200<br />sex: female","count:  0<br />body_mass_g: 6300<br />sex: female"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"female","legendgroup":"female","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[null,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[null,100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4100,4200,4300,4400,4500,4600,4700,4800,4900,5000,5100,5200,5300,5400,5500,5600,5700,5800,5900,6000,6100,6200,6300],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,6,3,5,5,13,7,6,6,6,5,2,3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"text":["count:  0<br />body_mass_g:    0<br />sex: male","count:  0<br />body_mass_g:  100<br />sex: male","count:  0<br />body_mass_g:  200<br />sex: male","count:  0<br />body_mass_g:  300<br />sex: male","count:  0<br />body_mass_g:  400<br />sex: male","count:  0<br />body_mass_g:  500<br />sex: male","count:  0<br />body_mass_g:  600<br />sex: male","count:  0<br />body_mass_g:  700<br />sex: male","count:  0<br />body_mass_g:  800<br />sex: male","count:  0<br />body_mass_g:  900<br />sex: male","count:  0<br />body_mass_g: 1000<br />sex: male","count:  0<br />body_mass_g: 1100<br />sex: male","count:  0<br />body_mass_g: 1200<br />sex: male","count:  0<br />body_mass_g: 1300<br />sex: male","count:  0<br />body_mass_g: 1400<br />sex: male","count:  0<br />body_mass_g: 1500<br />sex: male","count:  0<br />body_mass_g: 1600<br />sex: male","count:  0<br />body_mass_g: 1700<br />sex: male","count:  0<br />body_mass_g: 1800<br />sex: male","count:  0<br />body_mass_g: 1900<br />sex: male","count:  0<br />body_mass_g: 2000<br />sex: male","count:  0<br />body_mass_g: 2100<br />sex: male","count:  0<br />body_mass_g: 2200<br />sex: male","count:  0<br />body_mass_g: 2300<br />sex: male","count:  0<br />body_mass_g: 2400<br />sex: male","count:  0<br />body_mass_g: 2500<br />sex: male","count:  0<br />body_mass_g: 2600<br />sex: male","count:  0<br />body_mass_g: 2700<br />sex: male","count:  0<br />body_mass_g: 2800<br />sex: male","count:  0<br />body_mass_g: 2900<br />sex: male","count:  0<br />body_mass_g: 3000<br />sex: male","count:  0<br />body_mass_g: 3100<br />sex: male","count:  0<br />body_mass_g: 3200<br />sex: male","count:  1<br />body_mass_g: 3300<br />sex: male","count:  1<br />body_mass_g: 3400<br />sex: male","count:  6<br />body_mass_g: 3500<br />sex: male","count:  3<br />body_mass_g: 3600<br />sex: male","count:  5<br />body_mass_g: 3700<br />sex: male","count:  5<br />body_mass_g: 3800<br />sex: male","count: 13<br />body_mass_g: 3900<br />sex: male","count:  7<br />body_mass_g: 4000<br />sex: male","count:  6<br />body_mass_g: 4100<br />sex: male","count:  6<br />body_mass_g: 4200<br />sex: male","count:  6<br />body_mass_g: 4300<br />sex: male","count:  5<br />body_mass_g: 4400<br />sex: male","count:  2<br />body_mass_g: 4500<br />sex: male","count:  3<br />body_mass_g: 4600<br />sex: male","count:  3<br />body_mass_g: 4700<br />sex: male","count:  1<br />body_mass_g: 4800<br />sex: male","count:  0<br />body_mass_g: 4900<br />sex: male","count:  0<br />body_mass_g: 5000<br />sex: male","count:  0<br />body_mass_g: 5100<br />sex: male","count:  0<br />body_mass_g: 5200<br />sex: male","count:  0<br />body_mass_g: 5300<br />sex: male","count:  0<br />body_mass_g: 5400<br />sex: male","count:  0<br />body_mass_g: 5500<br />sex: male","count:  0<br />body_mass_g: 5600<br />sex: male","count:  0<br />body_mass_g: 5700<br />sex: male","count:  0<br />body_mass_g: 5800<br />sex: male","count:  0<br />body_mass_g: 5900<br />sex: male","count:  0<br />body_mass_g: 6000<br />sex: male","count:  0<br />body_mass_g: 6100<br />sex: male","count:  0<br />body_mass_g: 6200<br />sex: male","count:  0<br />body_mass_g: 6300<br />sex: male"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"male","legendgroup":"male","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[null,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[null,100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4100,4200,4300,4400,4500,4600,4700,4800,4900,5000,5100,5200,5300,5400,5500,5600,5700,5800,5900,6000,6100,6200,6300],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,1,2,3,5,4,5,3,0,2,2,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"text":["count:  0<br />body_mass_g:    0<br />sex: male","count:  0<br />body_mass_g:  100<br />sex: male","count:  0<br />body_mass_g:  200<br />sex: male","count:  0<br />body_mass_g:  300<br />sex: male","count:  0<br />body_mass_g:  400<br />sex: male","count:  0<br />body_mass_g:  500<br />sex: male","count:  0<br />body_mass_g:  600<br />sex: male","count:  0<br />body_mass_g:  700<br />sex: male","count:  0<br />body_mass_g:  800<br />sex: male","count:  0<br />body_mass_g:  900<br />sex: male","count:  0<br />body_mass_g: 1000<br />sex: male","count:  0<br />body_mass_g: 1100<br />sex: male","count:  0<br />body_mass_g: 1200<br />sex: male","count:  0<br />body_mass_g: 1300<br />sex: male","count:  0<br />body_mass_g: 1400<br />sex: male","count:  0<br />body_mass_g: 1500<br />sex: male","count:  0<br />body_mass_g: 1600<br />sex: male","count:  0<br />body_mass_g: 1700<br />sex: male","count:  0<br />body_mass_g: 1800<br />sex: male","count:  0<br />body_mass_g: 1900<br />sex: male","count:  0<br />body_mass_g: 2000<br />sex: male","count:  0<br />body_mass_g: 2100<br />sex: male","count:  0<br />body_mass_g: 2200<br />sex: male","count:  0<br />body_mass_g: 2300<br />sex: male","count:  0<br />body_mass_g: 2400<br />sex: male","count:  0<br />body_mass_g: 2500<br />sex: male","count:  0<br />body_mass_g: 2600<br />sex: male","count:  0<br />body_mass_g: 2700<br />sex: male","count:  0<br />body_mass_g: 2800<br />sex: male","count:  0<br />body_mass_g: 2900<br />sex: male","count:  0<br />body_mass_g: 3000<br />sex: male","count:  0<br />body_mass_g: 3100<br />sex: male","count:  1<br />body_mass_g: 3200<br />sex: male","count:  1<br />body_mass_g: 3300<br />sex: male","count:  2<br />body_mass_g: 3400<br />sex: male","count:  1<br />body_mass_g: 3500<br />sex: male","count:  2<br />body_mass_g: 3600<br />sex: male","count:  3<br />body_mass_g: 3700<br />sex: male","count:  5<br />body_mass_g: 3800<br />sex: male","count:  4<br />body_mass_g: 3900<br />sex: male","count:  5<br />body_mass_g: 4000<br />sex: male","count:  3<br />body_mass_g: 4100<br />sex: male","count:  0<br />body_mass_g: 4200<br />sex: male","count:  2<br />body_mass_g: 4300<br />sex: male","count:  2<br />body_mass_g: 4400<br />sex: male","count:  2<br />body_mass_g: 4500<br />sex: male","count:  0<br />body_mass_g: 4600<br />sex: male","count:  0<br />body_mass_g: 4700<br />sex: male","count:  1<br />body_mass_g: 4800<br />sex: male","count:  0<br />body_mass_g: 4900<br />sex: male","count:  0<br />body_mass_g: 5000<br />sex: male","count:  0<br />body_mass_g: 5100<br />sex: male","count:  0<br />body_mass_g: 5200<br />sex: male","count:  0<br />body_mass_g: 5300<br />sex: male","count:  0<br />body_mass_g: 5400<br />sex: male","count:  0<br />body_mass_g: 5500<br />sex: male","count:  0<br />body_mass_g: 5600<br />sex: male","count:  0<br />body_mass_g: 5700<br />sex: male","count:  0<br />body_mass_g: 5800<br />sex: male","count:  0<br />body_mass_g: 5900<br />sex: male","count:  0<br />body_mass_g: 6000<br />sex: male","count:  0<br />body_mass_g: 6100<br />sex: male","count:  0<br />body_mass_g: 6200<br />sex: male","count:  0<br />body_mass_g: 6300<br />sex: male"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"male","legendgroup":"male","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[null,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[null,100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4100,4200,4300,4400,4500,4600,4700,4800,4900,5000,5100,5200,5300,5400,5500,5600,5700,5800,5900,6000,6100,6200,6300],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,5,3,5,7,6,11,5,6,5,2,3,0,0,1],"text":["count:  0<br />body_mass_g:    0<br />sex: male","count:  0<br />body_mass_g:  100<br />sex: male","count:  0<br />body_mass_g:  200<br />sex: male","count:  0<br />body_mass_g:  300<br />sex: male","count:  0<br />body_mass_g:  400<br />sex: male","count:  0<br />body_mass_g:  500<br />sex: male","count:  0<br />body_mass_g:  600<br />sex: male","count:  0<br />body_mass_g:  700<br />sex: male","count:  0<br />body_mass_g:  800<br />sex: male","count:  0<br />body_mass_g:  900<br />sex: male","count:  0<br />body_mass_g: 1000<br />sex: male","count:  0<br />body_mass_g: 1100<br />sex: male","count:  0<br />body_mass_g: 1200<br />sex: male","count:  0<br />body_mass_g: 1300<br />sex: male","count:  0<br />body_mass_g: 1400<br />sex: male","count:  0<br />body_mass_g: 1500<br />sex: male","count:  0<br />body_mass_g: 1600<br />sex: male","count:  0<br />body_mass_g: 1700<br />sex: male","count:  0<br />body_mass_g: 1800<br />sex: male","count:  0<br />body_mass_g: 1900<br />sex: male","count:  0<br />body_mass_g: 2000<br />sex: male","count:  0<br />body_mass_g: 2100<br />sex: male","count:  0<br />body_mass_g: 2200<br />sex: male","count:  0<br />body_mass_g: 2300<br />sex: male","count:  0<br />body_mass_g: 2400<br />sex: male","count:  0<br />body_mass_g: 2500<br />sex: male","count:  0<br />body_mass_g: 2600<br />sex: male","count:  0<br />body_mass_g: 2700<br />sex: male","count:  0<br />body_mass_g: 2800<br />sex: male","count:  0<br />body_mass_g: 2900<br />sex: male","count:  0<br />body_mass_g: 3000<br />sex: male","count:  0<br />body_mass_g: 3100<br />sex: male","count:  0<br />body_mass_g: 3200<br />sex: male","count:  0<br />body_mass_g: 3300<br />sex: male","count:  0<br />body_mass_g: 3400<br />sex: male","count:  0<br />body_mass_g: 3500<br />sex: male","count:  0<br />body_mass_g: 3600<br />sex: male","count:  0<br />body_mass_g: 3700<br />sex: male","count:  0<br />body_mass_g: 3800<br />sex: male","count:  0<br />body_mass_g: 3900<br />sex: male","count:  0<br />body_mass_g: 4000<br />sex: male","count:  0<br />body_mass_g: 4100<br />sex: male","count:  0<br />body_mass_g: 4200<br />sex: male","count:  0<br />body_mass_g: 4300<br />sex: male","count:  0<br />body_mass_g: 4400<br />sex: male","count:  0<br />body_mass_g: 4500<br />sex: male","count:  0<br />body_mass_g: 4600<br />sex: male","count:  1<br />body_mass_g: 4700<br />sex: male","count:  0<br />body_mass_g: 4800<br />sex: male","count:  1<br />body_mass_g: 4900<br />sex: male","count:  5<br />body_mass_g: 5000<br />sex: male","count:  3<br />body_mass_g: 5100<br />sex: male","count:  5<br />body_mass_g: 5200<br />sex: male","count:  7<br />body_mass_g: 5300<br />sex: male","count:  6<br />body_mass_g: 5400<br />sex: male","count: 11<br />body_mass_g: 5500<br />sex: male","count:  5<br />body_mass_g: 5600<br />sex: male","count:  6<br />body_mass_g: 5700<br />sex: male","count:  5<br />body_mass_g: 5800<br />sex: male","count:  2<br />body_mass_g: 5900<br />sex: male","count:  3<br />body_mass_g: 6000<br />sex: male","count:  0<br />body_mass_g: 6100<br />sex: male","count:  0<br />body_mass_g: 6200<br />sex: male","count:  1<br />body_mass_g: 6300<br />sex: male"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"male","legendgroup":"male","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":55.452054794520549,"r":7.3059360730593621,"b":40.182648401826491,"l":37.260273972602747},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Histogram","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,0.32925636007827785],"automargin":true,"type":"linear","autorange":false,"range":[-317.5,6667.5],"tickmode":"array","ticktext":["0","2000","4000","6000"],"tickvals":[0,2000,4000,6000],"categoryorder":"array","categoryarray":["0","2000","4000","6000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"annotations":[{"text":"Body mass (in g)","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-21.917808219178088},{"text":"Frequency","x":0,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis","xshift":-21.917808219178081},{"text":"Adelie","x":0.16462818003913893,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Chinstrap","x":0.5,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Gentoo","x":0.83537181996086107,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.75,15.75],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":0.32925636007827785,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":0.32925636007827785,"y0":0,"y1":23.37899543378996,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.33741030658838878,"x1":0.66258969341161122,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.33741030658838878,"x1":0.66258969341161122,"y0":0,"y1":23.37899543378996,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0.67074363992172203,"x1":1,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(217,217,217,1)","line":{"color":"transparent","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.67074363992172203,"x1":1,"y0":0,"y1":23.37899543378996,"yanchor":1,"ysizemode":"pixel"}],"xaxis2":{"type":"linear","autorange":false,"range":[-317.5,6667.5],"tickmode":"array","ticktext":["0","2000","4000","6000"],"tickvals":[0,2000,4000,6000],"categoryorder":"array","categoryarray":["0","2000","4000","6000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.33741030658838878,0.66258969341161122],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"xaxis3":{"type":"linear","autorange":false,"range":[-317.5,6667.5],"tickmode":"array","ticktext":["0","2000","4000","6000"],"tickvals":[0,2000,4000,6000],"categoryorder":"array","categoryarray":["0","2000","4000","6000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.67074363992172203,1],"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"sex","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"8207e44b4a":{"x":{},"fill":{},"type":"bar"}},"cur_data":"8207e44b4a","visdat":{"8207e44b4a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>The above graph represents body mass on the x-axis and the frequency of penguins on the y-axis.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
