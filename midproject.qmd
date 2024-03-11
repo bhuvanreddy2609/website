@@ -4,6 +4,8 @@ editor: visual
 
 ## MID PROJECT
 
+YOUTUBE LINK :- <https://youtu.be/QjKMxH_dq0w>
+
 GROUP NUMBER :- 14
 
 GROUP MEMBER NAMES :-
@@ -20,9 +22,9 @@ The visualization is not clear to understand by looking at it.
 
 So we have created graphs to understand them just by looking at the representations.
 
-![](images/Screenshot 2024-03-11 135906.png)
+![](images/Screenshot%202024-03-11%20135906.png)
 
-![](images/Screenshot 2024-03-10 205230-01.png){width="471"}
+![](images/Screenshot%202024-03-10%20205230-01.png){width="471"}
 
 GRAPH1:-
 
