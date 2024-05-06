@@ -1,0 +1,9 @@
+---
+title: "1. Spotify Dataset Analysis Project"
+---
+
+![](images.png){fig-align="center" width="400"}
+
+# 1.1 Introduction
+
+The Spotify dataset includes various attributes of songs that provide insights into different aspects of each track. The dataset consists of a song's title and artist, which help identify the track and explore the artist's popularity and musical style. The genre of the song allows for the examination of musical trends across different styles. The year column indicates when the song was released, providing data for analyzing shifts in musical trends over time. The BPM (Beats Per Minute) measures the song's tempo and can be analyzed about other features like energy and danceability. Energy, on a scale from 0 to 100, measures the intensity and activity of the song, often correlating with loudness and tempo. Danceability, also on a scale from 0 to 100, represents the suitability of the song for dancing. Loudness, measured in decibels, indicates the overall volume of the track, while liveness estimates the presence of a live audience in the recording, suggesting whether the track is a live performance. Valence measures the positivity or happiness of the song, with higher valence indicating more upbeat tracks. The length of the song, measured in seconds, allows for analysis of trends in song durations across genres and years. Acousticness, on a scale from 0 to 100, measures the presence of acoustic elements in the track, while speechiness gauges the amount of spoken words in the song, suggesting genres like rap. Finally, popularity, on a scale from 0 to 100, indicates the song's popularity on Spotify, offering insights into what makes a song more appealing based on other features such as genre, energy, and danceability. Collectively, these attributes provide a rich dataset for analyzing popular music, understanding musical trends, and exploring relationships between different song features.

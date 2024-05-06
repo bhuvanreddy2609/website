@@ -1,0 +1,87 @@
+---
+title: "2.2 Research Question: 2"
+---
+
+#### **2. How does acoustics relate to energy levels, Loudness to valence, Energy to BPM and Dance-ability to Energy in songs?**
+
+#### **Aim :**
+
+The aim of this analysis is to explore the relationships between various musical attributes such as acousticness, energy, loudness, valence, BPM (beats per minute), and danceability using data from a Spotify dataset. By examining these relationships, we aim to understand how these attributes interact with each other, potentially revealing insights into musical preferences and characteristics.
+
+#### **Hypothesis :**
+
+We hypothesize that there exist correlations between certain pairs of musical attributes. For instance, we expect that energetic songs may have higher BPM, and we anticipate a potential relationship between acousticness and energy, as acoustic instruments tend to be associated with mellower, less energetic music.
+
+#### **Approach :**
+
+We start by getting data on different musical features from Spotify. Then, we create a tool called calculate_and_plot. This tool helps us see how different features relate to each other by calculating numbers that show how closely linked they are. We use these numbers to make scatter plots, which are like graphs showing the connections between features visually. After that, we look at these graphs and numbers to understand how each musical feature is connected to others. This helps us learn more about how songs are put together and what makes them sound the way they do.
+
+#### **Research :**
+
+Acousticness vs. Energy: We aim to investigate whether there is a correlation between the acousticness and energy of songs. The hypothesis suggests that songs with higher energy levels may have lower acousticness values. Loudness vs. Valence: We seek to explore the relationship between loudness and valence, hypothesizing that louder songs might be associated with more positive moods. Energy vs. BPM: We investigate whether there is a correlation between the energy of a song and its BPM, expecting that higher energy songs may have faster tempos. Danceability vs. Energy: We aim to understand the relationship between danceability and energy, hypothesizing that more energetic songs are likely to be more danceable.
+
+#### **Conclusion :**
+
+![](Rplot011.jpeg){width="500"}
+
+The analysis reveals a negative correlation between acousticness and energy, supporting the hypothesis that less acoustic music tends to be more energetic.
+
+![](Rplot012.jpeg){width="500"}
+
+The examination shows no strong correlation between loudness and valence, suggesting that volume does not strongly influence the mood of a song.
+
+![](Rplot013.jpeg){width="500"}
+
+The analysis indicates a moderate positive correlation between energy and BPM, supporting the hypothesis that more energetic songs tend to have faster tempos.
+
+![](Rplot014.jpeg){width="500"}
+
+The investigation demonstrates a positive correlation between danceability and energy, indicating that more energetic songs are more likely to be danceable.
+
+<button class="toggle-button" onclick="toggleData()">
+
+Code
+
+</button>
+
+::: {#data .hidden-data}
+```{=html}
+<pre><code class="language-r">
+library(ggplot2)
+spotify <- read.csv("D:/Data Analytics/Sem 1/STAT 515/Final Project/updated_dataset.csv")
+calculate_and_plot(spotify$Acousticness, spotify$Energy, "Acousticness", "Energy")
+calculate_and_plot(spotify$Loudness, spotify$Valence, "Loudness", "Valence")
+calculate_and_plot(spotify$Energy, spotify$BPM, "Energy", "BPM")
+calculate_and_plot(spotify$Danceability, spotify$Energy, "Danceability", "Energy")
+
+calculate_and_plot <- function(x, y, x_label, y_label) {
+  correlation <- cor(x, y)
+  print(paste("Correlation coefficient between", x_label, "and", y_label, ":", correlation))
+  
+  ggplot(data = spotify, aes(x = x, y = y)) +
+    geom_point(alpha = 0.5) +
+    labs(title = paste("Scatter plot of", x_label, "vs.", y_label),
+         x = x_label, y = y_label)
+}
+
+
+  </code></pre>
+```
+:::
+
+```{=html}
+<script>
+function toggleData() {
+  var dataDiv = document.getElementById("data");
+  dataDiv.classList.toggle("hidden-data");
+}
+</script>
+```
+```{=html}
+<style>
+.hidden-data {
+  display: none;
+}
+</style>
+```
+#### 

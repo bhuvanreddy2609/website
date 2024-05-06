@@ -1,0 +1,140 @@
+---
+title: "2.1 Research Question: 1"
+---
+
+#### **1. Does the fame of artist affect the popularity of the song?**
+
+#### **Aim :**
+
+This research is to analyze the popularity of artists on the Spotify platform and understand how different subsets of artists, categorized based on their popularity ratings, perform in terms of predictive accuracy.
+
+#### **Hypothesis :**
+
+The artists categorized as "Top" in terms of popularity will have the lowest root mean squared error (RMSE) values when using Lasso regression for popularity prediction. Conversely, artists categorized as "Below Average" are expected to have the highest RMSE values.
+
+#### **Research :**
+
+Our research focuses on understanding how the predictive accuracy of popularity models varies across different subsets of artists. By categorizing artists based on their popularity ratings, we aim to uncover patterns in model performance and identify which subsets are better represented by our Lasso regression models.
+
+#### **Approach :**
+
+In our initial step, we imported a data set containing details about artists and their tracks from Spotify. We divided these artists into three groups based on their popularity ratings: "Top," "Average," and "Below Average."
+
+Next, we employed Lasso regression, a form of linear regression with a penalty term, to forecast the popularity of tracks across different artists. For each subgroup, we partitioned the dataset into training and testing sets and trained a Lasso regression model using the training data.
+
+To assess the effectiveness of each model, we calculated the root mean squared error (RMSE) on the testing data. Lower RMSE values indicate higher predictive accuracy.
+
+Finally, we depicted the RMSE values for each subgroup using a bar chart, enabling a visual comparison of their performance.
+
+![](Rplot.jpeg){width="625"}
+
+::: toggle-container
+<button class="toggle-button" onclick="toggleData()">
+
+Code
+
+</button>
+
+::: {#data .hidden-data}
+```         
+<p>data <- read.csv("D:/Data Analytics/Sem 1/STAT 515/Final Project/updated_dataset.csv")
+str(data)
+topartists <- c("Taylor Swift", "Adele", "Bruno Mars", "Ed Sheeran",
+                 "Rihanna", "Justin Bieber", "Katy Perry", "Lady Gaga",
+                 "Beyoncé", "Eminem", "Calvin Harris", "Selena Gomez",
+                 "Nicki Minaj", "Dua Lipa", "The Weeknd", "One Direction",
+                 "Shawn Mendes", "Maroon 5", "Sia", "Lizzo")
+
+averageartists <- c("Alicia Keys", "Demi Lovato", "Camila Cabello",
+                     "Sam Smith", "Jonas Brothers", "Ellie Goulding",
+                     "Halsey", "Jason Derulo", "Jessie J", "Avicii",
+                     "Hailee Steinfeld", "Zedd", "Bastille", "Charlie Puth",
+                     "Lana Del Rey", "Macklemore & Ryan Lewis", "John Legend",
+                     "Kelly Clarkson", "Fifth Harmony", "Lana Del Rey")
+
+belowaverage_artists <- c("Birdy", "Sleeping At Last", "Cashmere Cat",
+                           "Lea Michele", "Rudimental", "Lilly Wood and The Prick",
+                           "A Great Big World", "Snakehips", "Lost Frequencies",
+                           "Joey Montana", "Florence + The Machine", "Paloma Faith",
+                           "Robin Schulz", "Years & Years", "Tove Lo", "Niall Horan",
+                           "Alessia Cara", "Jonas Blue", "Mabel", "Silk City")
+data$Rating <- ifelse(data$Artist %in% topartists, "Top",
+                         ifelse(data$Artist %in% averageartists, "Average", "Below Average"))
+
+head(data)
+
+########
+
+library(glmnet)
+library(Matrix)
+library(caret)
+library(ggplot2)
+
+subsets <- list(
+  Top = top,
+  Average = average,
+  Below_Average = below
+)
+
+rmse_values <- numeric(length(subsets))
+
+compute_rmse <- function(data) {
+
+  set.seed(123)
+
+  train_indices <- createDataPartition(y = data$Popularity, p = 0.7, list = FALSE)
+  X_train <- data[train_indices, ]
+  X_test <- data[-train_indices, ]
+  y_train <- X_train$Popularity
+  y_test <- X_test$Popularity
+
+  lasso_model <- glmnet(x = as.matrix(X_train[, -c(1, 21)]), y = y_train, alpha = 1)
+
+  predictions <- predict(lasso_model, newx = as.matrix(X_test[, -c(1, 21)]))
+
+  residuals <- y_test - predictions
+
+  sqrt(mean(residuals^2))
+}
+
+
+for (i in seq_along(subsets)) {
+  rmse_values[i] <- compute_rmse(subsets[[i]])
+  cat("RMSE for", names(subsets)[i], "subset:", rmse_values[i], "\n")
+}
+
+
+rmse_data <- data.frame(Subset = names(subsets), RMSE = rmse_values)
+
+
+barplot <- ggplot(rmse_data, aes(x = Subset, y = RMSE, fill = Subset)) +
+  geom_bar(stat = "identity", color = "black") +
+  labs(title = "Root Mean Squared Error (RMSE) for Different level of artists",
+       x = "Type of artists",
+       y = "RMSE") +
+  theme_minimal() +
+  theme(legend.position = "none")  
+print(barplot)
+```
+
+)
+
+</p>
+:::
+:::
+
+```{=html}
+<script>
+function toggleData() {
+  var dataDiv = document.getElementById("data");
+  if (dataDiv.classList.contains("hidden-data")) {
+    dataDiv.classList.remove("hidden-data");
+  } else {
+    dataDiv.classList.add("hidden-data");
+  }
+}
+</script>
+```
+#### **Conclusion :**
+
+Our analysis revealed insights into the predictive accuracy of popularity models for different subsets of artists. We found that Lasso regression performed differently across subsets, with "Top" artists generally exhibiting lower RMSE values compared to "Average" and "Below Average" artists. This suggests that popularity prediction may vary depending on the level of artist popularity, highlighting the importance of considering artist subsets in predictive modeling on platforms like Spotify.

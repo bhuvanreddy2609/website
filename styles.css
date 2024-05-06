@@ -1,0 +1,13 @@
+/* css styles */
+.toggle-container {
+  display: inline-block;
+}
+
+.toggle-button {
+  display: inline-block;
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.hidden-data {
+  display: none;
+}

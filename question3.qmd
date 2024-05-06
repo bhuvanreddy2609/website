@@ -1,0 +1,135 @@
+---
+title: "2.3 Research Question: 3"
+---
+
+#### **3. Can a song recommendation system be developed to suggest personalized song recommendations to users based on their preferences and songs?**
+
+#### **Aim :** 
+
+The aim is to implement a content-based recommendation system for suggesting songs to users based on their preferences and the features of the songs.
+
+#### **Hypothesis :**
+
+To generate personalized song recommendations which can be generated for users based on their preferences and song features. The assumption is that songs with similar audio features to the user's preferences are likely to be preferred by the user. By computing the **cosine** similarity between the user preferences and the features of songs, the code aims to recommend songs that are most similar to the user's preferred songs.
+
+#### **Research :** 
+
+This will involve data preprocessing, model training, evaluation, and comparison of collaborative filtering and content-based recommendation approaches. Additionally, the study may investigate hybrid recommendation systems that combine collaborative filtering and content-based techniques to provide more accurate and diverse recommendations.
+
+The findings of this study could have implications for the development of personalized recommendation systems in various domains, including music streaming platforms, online retail, and content curation services. By understanding the strengths and limitations of different recommendation techniques, this research aims to contribute to the advancement of personalized recommendation systems tailored to individual user preferences.
+
+#### **Approach :** 
+
+Firstly, by loading necessary libraries such as dplyr, Matrix, and shiny.
+
+The songs dataset is created and it contains information about various songs, including their popularity, title, artist, genre, year, and audio features like BPM, energy, danceability, etc.
+
+The cosine_similarity function computes the cosine similarity between two vectors. This function is used to compare the user's preferences with each song in the data set.
+
+The Songs function takes user preferences, the song data set, and an optional parameter top_n (default value is 10) as input. It computes the cosine similarity between the user's preferences and each song in the data set, orders the songs based on similarity (in descending order), and returns the top top_n songs.
+
+The ui variable defines the user interface (UI) of the Shiny application using fluidPage and sidebarLayout. It consists of several slider inputs for the user to specify their preferences and a button to trigger song recommendations. The main panel contains a table (dataTableOutput) to display the recommended songs.
+
+The server function defines the server logic of the Shiny application. It contains an observer (observeEvent) that listens for clicks on the "Recommend" button (input\$recommendBtn). When the button is clicked, it retrieves the user's preferences from the slider inputs, computes song recommendations using the Songs function, and renders the recommended songs in the main panel. Running the Shiny application: Finally, the shinyApp function is called with the UI and server logic as arguments to create and run the Shiny application.
+
+#### **Application :** 
+
+<https://projecttt.shinyapps.io/FinalProject/>
+
+<button class="toggle-button" onclick="toggleData()">Code</button>
+
+<div id="data" class="hidden-data">
+  <pre><code class="language-r">
+library(dplyr)
+library(Matrix)
+library(shiny)
+songs <- data.frame(
+  Popularity = c(83, 81, 80, 88, 86, 84, 84, 87, 86, 99),
+  Title = c("Hey, Soul Sister", "A Thousand Years", "Titanium (feat. Sia)", "Underneath the Tree", "All of Me", "Thinking out Loud", "The Hills", "Shape of You", "One Kiss (with Dua Lipa)", "Memories"),
+  Artist = c("Train", "Christina Perri", "David Guetta", "Kelly Clarkson", "John Legend", "Ed Sheeran", "The Weeknd", "Ed Sheeran", "Calvin Harris", "Maroon 5"),
+  Genre = c("neo mellow", "dance pop", "dance pop", "dance pop", "neo mellow", "pop", "canadian contemporary r&b", "pop", "dance pop", "pop"),
+  Year = c("2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"),
+  BPM = c(97, 139, 126, 160, 120, 79, 113, 96, 124, 91),
+  Energy = c(89, 41, 79, 81, 26, 45, 56, 65, 86, 32),
+  Danceability = c(67, 42, 60, 51, 42, 78, 58, 83, 79, 76),
+  Loudness = c(-4, -7, -4, -5, -7, -6, -7, -3, -3, -7),
+  Liveness = c(8, 11, 13, 21, 13, 18, 14, 9, 8, 8),
+  Valence = c(80, 16, 30, 69, 33, 59, 14, 93, 59, 57),
+  Length = c(217, 285, 245, 230, 270, 282, 242, 234, 215, 189),
+  Acousticness = c(19, 31, 7, 0, 92, 47, 7, 58, 4, 84),
+  Speechiness = c(4, 3, 10, 5, 3, 3, 5, 8, 11, 5)
+)
+
+cosine_similarity <- function(x, y) {
+  dot_product <- sum(x * y)
+  magnitude_x <- sqrt(sum(x^2))
+  magnitude_y <- sqrt(sum(y^2))
+  similarity <- dot_product / (magnitude_x * magnitude_y)
+  return(similarity)
+}
+
+
+Songs <- function(Intrest, songs, top_n = 10) {
+  similarities <- apply(songs[, 6:ncol(songs)], 1, function(x) cosine_similarity(Intrest, x))
+  Songs_Interest <- songs[order(similarities, decreasing = TRUE), ][1:top_n, ]
+  return(Songs_Interest)
+}
+
+
+ui <- fluidPage(
+  titlePanel("Recommendations"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("bpm", "BPM:", min = 50, max = 200, value = 130),
+      sliderInput("energy", "Energy:", min = 0, max = 100, value = 85),
+      sliderInput("danceability", "Danceability:", min = 0, max = 100, value = 70),
+      sliderInput("loudness", "Loudness:", min = -20, max = 0, value = -5),
+      sliderInput("liveness", "Liveness:", min = 0, max = 100, value = 10),
+      sliderInput("valence", "Valence:", min = 0, max = 100, value = 75),
+      sliderInput("length", "Length:", min = 100, max = 400, value = 230),
+      sliderInput("acousticness", "Acousticness:", min = 0, max = 100, value = 15),
+      sliderInput("speechiness", "Speechiness:", min = 0, max = 100, value = 5),
+      actionButton("recommendBtn", "Recommend")
+    ),
+    mainPanel(
+      dataTableOutput("recommendations")
+    )
+  )
+)
+
+
+server <- function(input, output) {
+  observeEvent(input$recommendBtn, {
+    Intrest <- c(input$bpm, input$energy, input$danceability, input$loudness, input$liveness, input$valence, input$length, input$acousticness, input$speechiness)
+    Songs_Interest <- Songs(Intrest, songs)
+    output$recommendations <- renderDataTable({
+      Songs_Interest[, c("Title", "Artist", "Genre")]
+    })
+  })
+}
+
+shinyApp(ui = ui, server = server)
+
+  </code></pre>
+
+  
+</div>
+
+<script>
+function toggleData() {
+  var dataDiv = document.getElementById("data");
+  dataDiv.classList.toggle("hidden-data");
+}
+</script>
+
+<style>
+.hidden-data {
+  display: none;
+}
+</style>
+
+
+#### **Conclusion :** 
+
+Overall, this code demonstrates the implementation of a content-based recommendation system for suggesting songs to users based on their preferences and the features of the songs. By computing the cosine similarity between the user preferences and each song's features, the code generates personalized song recommendations tailored to the user's preferences. This approach aims to enhance the user experience by providing relevant and personalized song suggestions.
+

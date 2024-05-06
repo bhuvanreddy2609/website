@@ -1,0 +1,11 @@
+---
+title: "1.2 Research Questions"
+---
+
+##### **1. Does the fame of the artist affect the popularity of the song?**
+
+##### **2.How does acoustics relate to energy levels, Loudness to valence, Energy to BPM and Dance-ability to Energy in songs?**
+
+##### **3. Can a song recommendation system be developed to suggest personalized song recommendations to users based on their preferences and songs?**
+
+#### 
